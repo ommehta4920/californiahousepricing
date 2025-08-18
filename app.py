@@ -1,15 +1,17 @@
 import pickle
-from flask import Flask, request, app, jsonify, render_template
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 
 app = Flask(__name__)
-## Load the model
+# Load the model
 regmodel = pickle.load(open("regmodel.pkl", "rb"))  
 scaler = pickle.load(open("scaling.pkl", "rb"))
+
 
 @app.route('/')
 def home():
     return render_template('home.html')
+
 
 @app.route('/predict_api', methods=['POST'])
 def predict_api():
@@ -20,6 +22,7 @@ def predict_api():
     output = regmodel.predict(new_data)
     print(output[0])
     return jsonify(output[0])
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
