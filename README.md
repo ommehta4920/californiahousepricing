@@ -12,3 +12,7 @@ Create a new environment
 ```
 python -m venv venv
 ```
+
+Checkout the Live Project
+
+[LiveProject](https://california-housing-price-rsmf.onrender.com/)
